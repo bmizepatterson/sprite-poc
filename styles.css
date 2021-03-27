@@ -1,5 +1,6 @@
 :root {
     --spacer: 2rem;
+    --sprite-scale: 1;
 }
 
 /* Resets */
@@ -41,4 +42,54 @@ main > section:not(:last-child) {
 .card {
     border-radius: calc(var(--spacer) * 0.5);
     padding: calc(var(--spacer) * 0.5);
+}
+
+/* Sprites */
+.sprite-collection {
+    display: flex;
+}
+.sprite-collection > :not(:last-child) {
+    margin-right: var(--spacer);
+}
+.sprite {
+    overflow: hidden;
+    position: relative;
+    width: calc(var(--sprite-scale) * var(--sprite-width));
+    height: calc(var(--sprite-scale) * var(--sprite-height));
+}
+.sprite .sprite-sheet {
+    position: absolute;
+    animation: animateSprite 1s steps(4) infinite;
+    width: calc(var(--sprite-scale) * var(--sprite-sheet-width));
+    height: calc(var(--sprite-scale) * var(--sprite-sheet-height));
+}
+@keyframes animateSprite {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+/* Character */
+.sprite-character {
+    --sprite-width: 32px;
+    --sprite-height: 32px;
+}
+.sprite-character .sprite-sheet {
+    --sprite-sheet-width: 128px;
+    --sprite-sheet-height: 128px;
+}
+.sprite-character.face-bottom .sprite-sheet {
+    top: calc(0 * var(--sprite-height));
+}
+.sprite-character.face-right .sprite-sheet {
+    top: calc(-1 * var(--sprite-height));
+}
+.sprite-character.face-up .sprite-sheet {
+    top: calc(-2 * var(--sprite-height));
+}
+.sprite-character.face-left .sprite-sheet {
+    top: calc(-3 * var(--sprite-height));
 }
