@@ -83,6 +83,11 @@ main > section:not(:last-child) {
     --sprite-width: 32px;
     --sprite-height: 32px;
 }
+.sprite-character-shadow {
+    position: absolute;
+    width: calc(var(--sprite-scale) * var(--sprite-width));
+    height: calc(var(--sprite-scale) * var(--sprite-height));
+}
 .sprite-character .sprite-sheet {
     --sprite-sheet-width: 128px;
     --sprite-sheet-height: 128px;
