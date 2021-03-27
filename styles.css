@@ -44,9 +44,15 @@ main > section:not(:last-child) {
     padding: calc(var(--spacer) * 0.5);
 }
 
+/* Rendering styles */
+.pixelart {
+    image-rendering: pixelated;
+}
+
 /* Sprites */
 .sprite-collection {
     display: flex;
+    flex-wrap: wrap;
 }
 .sprite-collection > :not(:last-child) {
     margin-right: var(--spacer);
@@ -82,14 +88,25 @@ main > section:not(:last-child) {
     --sprite-sheet-height: 128px;
 }
 .sprite-character.face-bottom .sprite-sheet {
-    top: calc(0 * var(--sprite-height));
+    top: calc(0 * var(--sprite-scale) * var(--sprite-height));
 }
 .sprite-character.face-right .sprite-sheet {
-    top: calc(-1 * var(--sprite-height));
+    top: calc(-1 *  var(--sprite-scale) *var(--sprite-height));
 }
 .sprite-character.face-up .sprite-sheet {
-    top: calc(-2 * var(--sprite-height));
+    top: calc(-2 * var(--sprite-scale) * var(--sprite-height));
 }
 .sprite-character.face-left .sprite-sheet {
-    top: calc(-3 * var(--sprite-height));
+    top: calc(-3 * var(--sprite-scale) * var(--sprite-height));
+}
+
+/* Scales */
+.scale-2 {
+    --sprite-scale: 2;
+}
+.scale-4 {
+    --sprite-scale: 4;
+}
+.scale-8 {
+    --sprite-scale: 8;
 }
