@@ -121,3 +121,23 @@ main > section:not(:last-child) {
 .scale-8 {
     --sprite-scale: 8;
 }
+
+/* Responsive scales */
+.scale-responsive {
+    --sprite-scale: 1;
+}
+@media(min-width: 600px) {
+    .scale-responsive {
+        --sprite-scale: 2;
+    }
+}
+@media(min-width: 1000px) {
+    .scale-responsive {
+        --sprite-scale: 4;
+    }
+}
+@media(min-width: 1400px) {
+    .scale-responsive {
+        --sprite-scale: 8;
+    }
+}
